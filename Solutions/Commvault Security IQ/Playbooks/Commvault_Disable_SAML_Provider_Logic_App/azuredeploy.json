@@ -35,6 +35,7 @@
 			"type": "string"
 		},
         "keyvaultName": {
+            "defaultValue": "Commvault-Integration-KV",
             "type": "string"
         }
     },
