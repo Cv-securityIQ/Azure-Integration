@@ -38,7 +38,6 @@
             "type": "string"
         }
     },
-    
     "variables":  {
         "subscriptionId": "[subscription().subscriptionId]",
         "tenantId": "[subscription().tenantId]",
