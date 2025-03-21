@@ -28,9 +28,7 @@ The following Azure assets need to all be created in order for this integration 
 All of these secrets are stored in the KeyVault mentioned above. For the first time setup, their values need to be manually retrieved.
 
 - **access-token:** The access token for Commvault/Metallic.
-- **environment-endpoint-url:** The URL of your Commvault/Metallic endpoint. Which is in the format:
-  - Command center url: https://*{hostname}*/commandcenter/api
-  - WebService url: http://*{hostname}*:*{port}*/SearchSvc/CVWebService.svc
+- **environment-endpoint-url:** The URL of your Commvault/Metallic endpoint. 
 
 ### Sentinel Analytic Rules
 
@@ -48,11 +46,11 @@ Each of these Analytic Rules run on a continuous basis and are querying for the 
   - Basics:
     - Select the correct subscription and resource group
     - KeyVault name:
-      - Commvault-Integration-KV
+      - Enter the key vault name you want to use. 
 
 ### Create the KeyVault Secrets
 
-- Go to KeyVault -> "Commvault-Integration-KV" -> Secrets (Under "Objects") -> "Generate/Import"
+- Go to KeyVault -> Key vault created/used above -> Secrets (Under "Objects") -> "Generate/Import"
   - Upload Options:
     - Manual
   - Name:
@@ -62,7 +60,7 @@ Each of these Analytic Rules run on a continuous basis and are querying for the 
   - Enabled:
     - Yes
   - Click "Create"
-- Go to KeyVault -> "Commvault-Integration-KV" -> Secrets (Under "Objects") -> "Generate/Import"
+- Go to KeyVault -> Key vault created/used above -> Secrets (Under "Objects") -> "Generate/Import"
   - Upload Options:
     - Manual
   - Name:
@@ -76,6 +74,10 @@ Each of these Analytic Rules run on a continuous basis and are querying for the 
 ### Install Commvault Cloud Solution
 
 - Go to Sentinel -> Content hub (located under “Configuration”) -> Search for "Commvault Cloud" -> Install
+
+### Configure the Data Connector
+
+- Go to CommvaultSecurityIQ (using Azure Functions) -> Copy workspace ID and Primary Key -> Deploy to Azure -> Fill up the fields with the appropriate values, and for "Key Vault Name", use Key vault created/used above, used above. 
 
 ### Upload and Run PowerShell Script Setup-CommvaultAutomation
 
