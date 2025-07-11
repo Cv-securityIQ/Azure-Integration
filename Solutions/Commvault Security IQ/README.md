@@ -49,7 +49,15 @@ Installation
 
 **6\. Upload and Run Setup Script:**
 
-> **Note:** You must have sufficient permissions to view and purge secrets in the Azure Key Vault before running the setup script. Without these permissions, the script will fail to update or remove existing secrets as required.
+**Why run the Setup Script?**
+
+Running the `Setup-CommvaultAutomation.ps1` script automates the Azure setup required for Commvault-Sentinel integration. It:
+
+*   Checks for or creates the required Automation Account and imports/publishes the necessary runbooks for Commvault operations.
+*   Assists in creating the required custom table for Commvault data ingestion.
+*   Validates the Azure Key Vault and ensures required secrets are present, generating or refreshing Commvault access tokens as needed.
+
+> **Note:** You must have sufficient permissions to view and edit secrets in the Azure Key Vault before running the setup script. Without these permissions, the script will fail to update existing secrets as required.
 
 *   Open **Azure Cloud Shell** in PowerShell mode:
     1. Navigate to the **Azure Portal**.
@@ -62,7 +70,6 @@ Installation
 **7\. Create Analytic Rules:**
 
 *   Sentinel -> Content hub -> "Commvault Cloud" -> Manage -> "Commvault Cloud Alert" -> Create Rule -> Next -> Save.
-*   Repeat for other Analytic Rules.
 
 **8\. Create Playbooks:**
 
